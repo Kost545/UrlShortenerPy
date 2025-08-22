@@ -24,18 +24,13 @@
     git clone <repo-url>
     cd <repo-directory>
     ```
-2. Создайте виртуальное окружение:
+2. Соберите docker образ:
     ```sh
-    python -m venv venv
-    ./venv/Scripts/activate
+    docker build -t urlshortener:dev .
     ```
-3. Установите зависимости:
+3. Запустите сервер:
     ```sh
-    pip install -r requirements.txt
-    ```
-4. Запустите сервер:
-    ```sh
-    uvicorn src.server:app --reload
+    docker run --rm -p 8000:8000 --name urlshortener urlshortener:dev
     ```
 
 ## Использование

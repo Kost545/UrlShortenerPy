@@ -56,19 +56,19 @@
 - Получить список пользователей:
 
     ```http
-    GET /users/
+    GET /           # без параметров
     ```
 
 - Создать пользователя:
 
     ```http
-    POST /users/?user_name=имя
+    POST /?user_name=имя
     ```
 
 - Удалить пользователя:
 
     ```http
-    DELETE /users/имя
+    DELETE /имя
     ```
 
 ### Ссылки пользователя
@@ -76,25 +76,31 @@
 - Получить все ссылки пользователя:
 
     ```http
-    GET /users/имя/urls/
+    GET /имя/
     ```
 
-- Создать короткую ссылку:
+- Создать короткую ссылку (автоматически):
 
     ```http
-    POST /users/имя/urls/?original_url=https://example.com
+    POST /имя/?original_url=https://example.com
+    ```
+
+- Создать короткую ссылку с кастомным коротким URL:
+
+    ```http
+    POST /имя/?original_url=https://example.com&custom_url=MyShort
     ```
 
 - Перенаправление по короткой ссылке:
 
     ```http
-    GET /users/имя/urls/AbCdEfG
+    GET /имя/AbCdEfG
     ```
 
 - Удалить короткую ссылку:
 
     ```http
-    DELETE /users/имя/urls/AbCdEfG
+    DELETE /имя/AbCdEfG
     ```
 
 ## Примечания

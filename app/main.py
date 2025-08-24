@@ -1,7 +1,7 @@
 import aiosqlite
 from contextlib import asynccontextmanager
 from fastapi import FastAPI
-from .routers import users
+from .routers import users, urls
 from .db_requests import create_users_table, create_urls_table
 
 @asynccontextmanager
@@ -15,3 +15,4 @@ async def lifespan(app: FastAPI):
 app = FastAPI(lifespan=lifespan)
 
 app.include_router(users.router)
+app.include_router(urls.router)

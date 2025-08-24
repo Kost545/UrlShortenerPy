@@ -23,59 +23,76 @@
 ## Установка и запуск
 
 1. Клонируйте репозиторий:
+
     ```sh
     git clone <repo-url>
     cd <repo-directory>
     ```
 
 2. Установите зависимости:
+
     ```sh
     pip install -r requirements.txt
     ```
 
 3. Запустите сервер локально:
+
     ```sh
     fastapi dev app/main.py
     ```
 
 4. (Опционально) Соберите и запустите через Docker:
+
     ```sh
     docker build -t urlshortener:dev .
-    docker
+    docker run --rm -p 8000:8000 --name urlshortener urlshortener:dev
+    ```
 
 ## Примеры запросов
 
 ### Пользователи
 
 - Получить список пользователей:
-    ```
+
+    ```http
     GET /users/
     ```
+
 - Создать пользователя:
-    ```
+
+    ```http
     POST /users/?user_name=имя
     ```
+
 - Удалить пользователя:
-    ```
+
+    ```http
     DELETE /users/имя
     ```
 
 ### Ссылки пользователя
 
 - Получить все ссылки пользователя:
-    ```
+
+    ```http
     GET /users/имя/urls/
     ```
+
 - Создать короткую ссылку:
-    ```
+
+    ```http
     POST /users/имя/urls/?original_url=https://example.com
     ```
+
 - Перенаправление по короткой ссылке:
-    ```
+
+    ```http
     GET /users/имя/urls/AbCdEfG
     ```
+
 - Удалить короткую ссылку:
-    ```
+
+    ```http
     DELETE /users/имя/urls/AbCdEfG
     ```
 

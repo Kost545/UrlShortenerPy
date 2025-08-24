@@ -39,6 +39,10 @@ get_urls_by_user_name = """
         SELECT original_url, short_url FROM urls JOIN users ON urls.user_id = users.id 
         WHERE users.username = ?;
         """
+get_urls_by_user_name_and_short_urls = """
+        SELECT original_url, short_url FROM urls JOIN users ON urls.user_id = users.id 
+        WHERE users.username = ? AND short_url = ?;
+        """
 
 delete_url_by_short_url = """
         DELETE FROM urls WHERE short_url = ? AND 

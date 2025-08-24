@@ -3,7 +3,7 @@ from fastapi.responses import RedirectResponse
 from aiosqlite import connect
 from ..db_requests import *
 
-router = APIRouter(prefix="/users", tags=["users"])
+router = APIRouter(prefix="", tags=["users"])
 
 @router.get("/")
 async def get_user_names():
